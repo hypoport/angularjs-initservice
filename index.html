@@ -1,0 +1,72 @@
+<html>
+<head>
+    <style type="text/css">
+        div.left,
+        div.right {
+            position: relative;
+            float: left;
+        }
+
+        .wrapper {
+            width: 100%;
+        }
+
+        .left {
+            width: 40%;
+        }
+
+        .right {
+            width: 40%;
+        }
+
+        .log {
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+<div ng-app="myModule" class="wrapper">
+    <h2>AngularJS Initialization Demo</h2>
+
+    <div ng-controller="simpleController" class="left">
+        <h3>basic example</h3>
+
+        <p ng-show="options.length == 0">loading options...</p>
+        <select ng-show="options.length !== 0"
+                ng-model="selectedOption"
+                ng-options="option.value as option.name for option in options">
+        </select>
+
+        <div class="log">
+            log:
+            <ul>
+                <li ng-repeat="entry in logentries">{{entry}}</li>
+            </ul>
+        </div>
+    </div>
+    <div ng-controller="controllerWithInitialization" class="right">
+        <h3>initialization aware</h3>
+
+        <p ng-show="options.length == 0">loading options...</p>
+        <select ng-show="options.length !== 0"
+                ng-model="selectedOption"
+                ng-options="option.value as option.name for option in options">
+        </select>
+
+        <div class="log">
+            log:
+            <ul>
+                <li ng-repeat="entry in logentries">{{entry}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js" type="text/javascript"></script>
+<script src="app.js" type="text/javascript"></script>
+</body>
+</html>
